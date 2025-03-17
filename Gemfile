@@ -58,3 +58,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem 'poke-api-v2'
+# Poke-Api-V2 depends on these other gems for usage at runtime:
+# [net/http] consumes the PokéAPI
+# gem 'net/http'
+# [json] parses the PokéAPI response
+gem 'json'

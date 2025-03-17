@@ -7,3 +7,33 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'poke-api-v2'
+
+
+
+
+def get_pokemon_data(limit = 100)
+  pokemon_data = []
+
+  (1...limit).each do |id|
+    data = PokeApi.get(pokemon: id)
+    pokemon_data << {
+      name: data.name,
+      height: data.height,
+      weight: data.weight
+
+    }
+
+  end
+  pokemon_data
+end
+
+
+def seed pokemon
+  pokemon_data = get_pokemon_data
+
+  pokemon_data.each do |data|
+    pokemon = Pokemon.create(name: data[:name], height: data[:height], weight: data[:weight])
+
+  end
+end
