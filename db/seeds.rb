@@ -44,6 +44,8 @@ def seed
       pokemon.types << type
     end
 
+
+
   end
 end
 

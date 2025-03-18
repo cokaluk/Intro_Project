@@ -1,0 +1,15 @@
+<h1>Pokemon Index</h1>
+
+<ul>
+  <% @pokemons.each do |pokemon| %>
+    <li>
+      <h2><%= pokemon.name %></h2>
+      <p>Weight: <%= pokemon.weight / 10 %> kg</p>
+      <p>Height: <%= pokemon.height / 10 %> m</p>
+      <p>Primary Type:<%= pokemon.types.first.name %></p>
+      <% if pokemon.types.count > 1 %>
+        <p>Secondary Type: <%= pokemon.types.second.name %></p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
