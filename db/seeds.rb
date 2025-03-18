@@ -11,6 +11,8 @@ require 'poke-api-v2'
 
 
 
+Pokemon.delete_all()
+Type.delete_all()
 
 def get_pokemon_data(limit = 100)
   pokemon_data = []
@@ -20,7 +22,8 @@ def get_pokemon_data(limit = 100)
     pokemon_data << {
       name: data.name,
       height: data.height,
-      weight: data.weight
+      weight: data.weight,
+
 
     }
 
