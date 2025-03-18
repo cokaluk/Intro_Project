@@ -9,11 +9,13 @@
 #   end
 require 'poke-api-v2'
 
-
-
+PokemonMove.delete_all()
+PokemonType.delete_all()
 Pokemon.delete_all()
 Type.delete_all()
-PokemonType.delete_all()
+# PokemonType.delete_all()
+Move.delete_all()
+# PokemonMove.delete_all()
 
 def get_pokemon_data(limit = 100)
   pokemon_data = []
@@ -24,8 +26,8 @@ def get_pokemon_data(limit = 100)
       name: data.name,
       height: data.height,
       weight: data.weight,
-      types: data.types.map {|type| type.type.name}
-
+      types: data.types.map {|type| type.type.name},
+      moves: data.moves.map {|move| move.move.name}
     }
 
   end
@@ -42,6 +44,11 @@ def seed
     data[:types].each do |type_name|
       type = Type.find_or_create_by(name: type_name)
       pokemon.types << type
+    end
+
+    data[:moves].each do |move_name|
+      move = Move.find_or_create_by(name: move_name)
+      pokemon.moves << move
     end
 
 
