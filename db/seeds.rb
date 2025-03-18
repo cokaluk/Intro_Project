@@ -13,17 +13,18 @@ require 'poke-api-v2'
 
 Pokemon.delete_all()
 Type.delete_all()
+PokemonType.delete_all()
 
 def get_pokemon_data(limit = 100)
   pokemon_data = []
 
-  (1...limit).each do |id|
+  (1..limit).each do |id|
     data = PokeApi.get(pokemon: id)
     pokemon_data << {
       name: data.name,
       height: data.height,
       weight: data.weight,
-
+      types: data.types.map {|type| type.type.name}
 
     }
 
@@ -32,11 +33,18 @@ def get_pokemon_data(limit = 100)
 end
 
 
-def seed pokemon
+def seed
   pokemon_data = get_pokemon_data
 
   pokemon_data.each do |data|
     pokemon = Pokemon.create(name: data[:name], height: data[:height], weight: data[:weight])
 
+    data[:types].each do |type_name|
+      type = Type.find_or_create_by(name: type_name)
+      pokemon.types << type
+    end
+
   end
 end
+
+seed
