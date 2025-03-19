@@ -17,6 +17,16 @@
   </head>
 
   <body>
+    <%# todo style with bootstrap later to be horizontal  %>
+    <nav>
+      <ul>
+        <li><%= link_to "Pokemon", root_path %></li>
+        <li><%= link_to "Types", types_path %></li>
+        <li><%= link_to "Moves", moves_path %></li>
+        <li><%= link_to "About", about_path %></li>
+      </ul>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
