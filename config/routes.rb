@@ -16,4 +16,6 @@ Rails.application.routes.draw do
 
   resources :moves, only:[:index, :show]
 
+  resources :types, only:[:index, :show]
+
 end

@@ -1,0 +1,9 @@
+<h1>Types of Pokemon</h1>
+
+<ul>
+  <% @types.each do | type |%>
+    <li>
+      <p><%= link_to type.name, type_path(type)%></p>
+    </li>
+  <% end %>
+</ul>
