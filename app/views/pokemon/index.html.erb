@@ -6,9 +6,9 @@
       <h2><%= link_to pokemon.name, pokemon_path(pokemon) %></h2>
       <p>Weight: <%= pokemon.weight / 10 %> kg</p>
       <p>Height: <%= pokemon.height / 10 %> m</p>
-      <p>Primary Type:<%= pokemon.types.first.name %></p>
+      <p>Primary Type:<%= link_to pokemon.types.first.name, type_path(pokemon.types.first) %></p>
       <% if pokemon.types.count > 1 %>
-        <p>Secondary Type: <%= pokemon.types.second.name %></p>
+        <p>Secondary Type: <%= link_to pokemon.types.second.name, type_path(pokemon.types.second) %></p>
       <% end %>
     </li>
   <% end %>

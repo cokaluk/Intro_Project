@@ -5,7 +5,7 @@
 <ul>
   <% @type.pokemons.each do | pokemon |%>
   <li>
-    <p><%= pokemon.name %></p>
+    <p><%= link_to pokemon.name, pokemon_path(pokemon) %></p>
   </li>
   <% end %>
 </ul>
