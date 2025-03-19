@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   root "pokemon#index"
 
   get "/about", to: "pages#about"
+
+  resources :moves, only:[:index, :show]
+
 end

@@ -1,0 +1,9 @@
+<h1><%= @move.name %></h1>
+
+<ul>
+  <% @move.pokemons.each do | pokemon |%>
+    <li>
+      <p><%= pokemon.name %></p>
+    </li>
+  <% end %>
+</ul>
