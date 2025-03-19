@@ -1,6 +1,6 @@
 class MovesController < ApplicationController
   def index
-    @moves = Move.all
+    @moves = Move.page(params[:page]).per(20)
   end
 
   def show
