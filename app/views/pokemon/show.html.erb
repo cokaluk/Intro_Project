@@ -1,0 +1,17 @@
+<h1><%= @pokemon.name %></h1>
+
+<p>Weight: <%= @pokemon.weight / 10 %> kg</p>
+<p>Height: <%= @pokemon.height / 10 %> m</p>
+<p>Primary Type: <%= @pokemon.types.first.name %></p>
+  <% if @pokemon.types.count > 1 %>
+    <p>Secondary Type: <%= @pokemon.types.second.name %></p>
+  <% end %>
+
+<h2>Learnable Moves</h2>
+<ul>
+  <% @pokemon.moves.each do | move |%>
+    <li>
+      <p><%= move.name %></p>
+    </li>
+  <% end %>
+</ul>

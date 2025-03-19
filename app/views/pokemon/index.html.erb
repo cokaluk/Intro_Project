@@ -3,7 +3,7 @@
 <ul>
   <% @pokemons.each do |pokemon| %>
     <li>
-      <h2><%= pokemon.name %></h2>
+      <h2><%= link_to pokemon.name, pokemon_path(pokemon) %></h2>
       <p>Weight: <%= pokemon.weight / 10 %> kg</p>
       <p>Height: <%= pokemon.height / 10 %> m</p>
       <p>Primary Type:<%= pokemon.types.first.name %></p>
