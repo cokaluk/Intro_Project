@@ -1,6 +1,7 @@
 class TypesController < ApplicationController
   def index
-    @types = Type.page(params[:page]).per(5)
+    @types = Type.all
+    # page(params[:page]).per(5)
   end
 
   def show

@@ -1,17 +1,22 @@
 <h1>Pokemon Index</h1>
 
-<ul>
-  <% @pokemons.each do |pokemon| %>
-    <li>
-      <h2><%= link_to pokemon.name, pokemon_path(pokemon) %></h2>
-      <p>Weight: <%= pokemon.weight / 10 %> kg</p>
-      <p>Height: <%= pokemon.height / 10 %> m</p>
-      <p>Primary Type:<%= link_to pokemon.types.first.name, type_path(pokemon.types.first) %></p>
-      <% if pokemon.types.count > 1 %>
-        <p>Secondary Type: <%= link_to pokemon.types.second.name, type_path(pokemon.types.second) %></p>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row row-cols-3">
+    <% @pokemons.each do |pokemon| %>
+      <div class="col">
+        <h2><%= link_to pokemon.name, pokemon_path(pokemon) %></h2>
+        <p>Weight: <%= pokemon.weight / 10 %> kg</p>
+        <p>Height: <%= pokemon.height / 10 %> m</p>
+        <p>Primary Type:<%= link_to pokemon.types.first.name, type_path(pokemon.types.first) %></p>
+        <% if pokemon.types.count > 1 %>
+          <p>Secondary Type: <%= link_to pokemon.types.second.name, type_path(pokemon.types.second) %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<%= paginate @pokemons %>
+<div class="d-flex justify-content-center">
+  <%= paginate @pokemons %>
+</div>
+

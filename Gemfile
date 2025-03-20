@@ -65,3 +65,6 @@ gem 'poke-api-v2'
 gem 'json'
 
 gem 'kaminari'
+
+gem 'bootstrap', '~> 5.3.3'
+gem 'sassc-rails'
